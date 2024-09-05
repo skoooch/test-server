@@ -10,7 +10,9 @@ app.patch("/binary-upload", (req, res) => {
   req.pipe(fs.createWriteStream("./uploads/image" + Date.now() + ".png"));
   res.end("OK");
 });
-
+app.get("/", (req, res) => {
+  res.send("Welcome to my server!");
+});
 // This method will save a "photo" field from the request as a file.
 app.patch("/multipart-upload", upload.single("photo"), (req, res) => {
   // You can access other HTTP parameters. They are located in the body object.
